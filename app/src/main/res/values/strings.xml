@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="city_name_hint">Nome da cidade</string>
+    <string name="search">Buscar</string>
+    <string name="city">Cidade</string>
+    <string name="temperature">Temperatura</string>
+    <string name="humidity">Umidade</string>
+    <string name="weather">Tempo</string>
+    <string name="clear_sky">Céu limpo</string>
+    <string name="few_clouds">Poucas nuvens</string>
+    <string name="scattered_clouds">Nuvens dispersas</string>
+    <string name="broken_clouds">Nuvens quebradas</string>
+    <string name="shower_rain">Chuvas disperdas</string>
+    <string name="rain">Chuvoso</string>
+    <string name="thunderstorm">Tempestade</string>
+    <string name="snow">Nevando</string>
+    <string name="mist">Névoa</string>
+</resources>
