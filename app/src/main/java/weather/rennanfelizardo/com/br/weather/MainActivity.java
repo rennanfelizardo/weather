@@ -1,5 +1,6 @@
 package weather.rennanfelizardo.com.br.weather;
 
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView    temperatureView;
     private TextView    humidityView;
     private Button      button;
-    private EditText    cityInput;
+    private TextInputEditText cityInput;
     private ImageView   temperatureImage;
     private TextView    weather;
 
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         temperatureView     =   (TextView) findViewById(R.id.temperature);
         humidityView        =   (TextView) findViewById(R.id.humidity);
         button              =   (Button) findViewById(R.id.buttonSearch);
-        cityInput           =   (EditText) findViewById(R.id.cityInput);
+        cityInput           =   (TextInputEditText) findViewById(R.id.cityInput);
         temperatureImage    =   (ImageView) findViewById(R.id.temperatureImage);
         weather             =   (TextView) findViewById(R.id.weather);
 
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (cityName.isEmpty()){
                     View focus = cityInput;
-                    cityInput.setError("Campo vazio");
+                    cityInput.setError(getString(R.string.err_empty_field));
                     focus.requestFocus();
                 }else {
                     OpenWeatherService service = OpenWeatherService.retrofit.create(OpenWeatherService.class);
