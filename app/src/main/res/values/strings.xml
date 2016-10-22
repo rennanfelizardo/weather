@@ -18,4 +18,5 @@
     <string name="snow">Nevando</string>
     <string name="mist">Névoa</string>
     <string name="err_empty_field">Campo vazio</string>
+    <string name="err_only_letters">Digite apenas letras</string>
 </resources>

@@ -1,15 +1,18 @@
 package weather.rennanfelizardo.com.br.weather;
 
 import android.support.design.widget.TextInputEditText;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.text.Normalizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,11 +48,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final String cityName = cityInput.getText().toString();
 
-                if (cityName.isEmpty()){
-                    View focus = cityInput;
-                    cityInput.setError(getString(R.string.err_empty_field));
-                    focus.requestFocus();
-                }else {
+                if (validateCityName()){
                     OpenWeatherService service = OpenWeatherService.retrofit.create(OpenWeatherService.class);
 
                     Call<City> call = service.getCityByName(cityName, "metric", OpenWeatherService.API_KEY);
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     call.enqueue(new Callback<City>() {
                         @Override
                         public void onResponse(Call<City> call, Response<City> response) {
-                            cityView.setText(getString(R.string.city) + ": " + response.body().getName());
+                            cityView.setText(getString(R.string.city) + ": " + cityName);
                             temperatureView.setText(getString(R.string.temperature) + ": "  + String.format("%s", response.body().getMain().getTemp().toString()) + "ºC");
                             humidityView.setText(getString(R.string.humidity) + ": "  + response.body().getMain().getHumidity() + "%");
 
@@ -68,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                             setIconAndWeather(response.body().getWeather().get(0).getIcon());
                             temperatureImage.setVisibility(View.VISIBLE);
                             weather.setVisibility(View.VISIBLE);
-
                         }
 
                         @Override
@@ -79,8 +77,30 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    private boolean validateCityName(){
+        String cityName = cityInput.getText().toString();
+        cityName = removeAccents(cityName);
 
+        Pattern pattern = Pattern.compile("[a-zA-Z ]+");
+        Matcher matcher = pattern.matcher(cityName);
+
+        if (TextUtils.isEmpty(cityName)){
+            cityInput.setError(getString(R.string.err_empty_field));
+            return false;
+
+        }else if (!matcher.matches()){
+            cityInput.setError(getString(R.string.err_only_letters));
+            return false;
+        }
+
+        return true;
+    }
+
+    private String removeAccents(String cityName){
+        return Normalizer.normalize(cityName, Normalizer.Form.NFD)
+                    .replaceAll("[\\p{M}]", "");
     }
 
     private void setIconAndWeather(String icon) {
