@@ -11,7 +11,7 @@
     <string name="clear_sky">Céu limpo</string>
     <string name="few_clouds">Poucas nuvens</string>
     <string name="scattered_clouds">Nuvens dispersas</string>
-    <string name="broken_clouds">Nuvens quebradas</string>
+    <string name="broken_clouds">Nublado</string>
     <string name="shower_rain">Chuvas disperdas</string>
     <string name="rain">Chuvoso</string>
     <string name="thunderstorm">Tempestade</string>
@@ -19,4 +19,5 @@
     <string name="mist">Névoa</string>
     <string name="err_empty_field">Campo vazio</string>
     <string name="err_only_letters">Digite apenas letras</string>
+    <string name="err_cant_load">Não foi possível gerar os dados</string>
 </resources>

@@ -1,10 +1,11 @@
-
 package weather.rennanfelizardo.com.br.weather.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
+/**
+ * Created by rennanfelizardo on 28/10/16.
+ */
 public class Weather {
 
     @SerializedName("id")
@@ -51,5 +52,4 @@ public class Weather {
     public void setIcon(String icon) {
         this.icon = icon;
     }
-
 }

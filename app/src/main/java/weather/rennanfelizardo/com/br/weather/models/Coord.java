@@ -1,10 +1,11 @@
-
 package weather.rennanfelizardo.com.br.weather.models;
-
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Created by rennanfelizardo on 28/10/16.
+ */
 
 public class Coord {
 
@@ -30,5 +31,4 @@ public class Coord {
     public void setLat(Double lat) {
         this.lat = lat;
     }
-
 }

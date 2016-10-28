@@ -1,113 +1,28 @@
-
 package weather.rennanfelizardo.com.br.weather.models;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Created by rennanfelizardo on 28/10/16.
+ */
 
 public class City {
-
-    @SerializedName("coord")
-    @Expose
-    private Coord coord;
-    @SerializedName("weather")
-    @Expose
-    private List<Weather> weather = new ArrayList<Weather>();
-    @SerializedName("base")
-    @Expose
-    private String base;
-    @SerializedName("main")
-    @Expose
-    private Main main;
-    @SerializedName("wind")
-    @Expose
-    private Wind wind;
-    @SerializedName("clouds")
-    @Expose
-    private Clouds clouds;
-    @SerializedName("dt")
-    @Expose
-    private Integer dt;
-    @SerializedName("sys")
-    @Expose
-    private Sys sys;
     @SerializedName("id")
     @Expose
     private Integer id;
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("cod")
+    @SerializedName("coord")
     @Expose
-    private Integer cod;
-
-
-    public Coord getCoord() {
-        return coord;
-    }
-
-    public void setCoord(Coord coord) {
-        this.coord = coord;
-    }
-
-    public List<Weather> getWeather() {
-        return weather;
-    }
-
-    public void setWeather(List<Weather> weather) {
-        this.weather = weather;
-    }
-
-    public String getBase() {
-        return base;
-    }
-
-    public void setBase(String base) {
-        this.base = base;
-    }
-
-
-    public Main getMain() {
-        return main;
-    }
-
-    public void setMain(Main main) {
-        this.main = main;
-    }
-
-    public Wind getWind() {
-        return wind;
-    }
-
-    public void setWind(Wind wind) {
-        this.wind = wind;
-    }
-
-    public Clouds getClouds() {
-        return clouds;
-    }
-
-    public void setClouds(Clouds clouds) {
-        this.clouds = clouds;
-    }
-
-    public Integer getDt() {
-        return dt;
-    }
-
-    public void setDt(Integer dt) {
-        this.dt = dt;
-    }
-
-    public Sys getSys() {
-        return sys;
-    }
-
-    public void setSys(Sys sys) {
-        this.sys = sys;
-    }
+    private Coord coord;
+    @SerializedName("country")
+    @Expose
+    private String country;
+    @SerializedName("population")
+    @Expose
+    private Integer population;
 
     public Integer getId() {
         return id;
@@ -125,12 +40,28 @@ public class City {
         this.name = name;
     }
 
-    public Integer getCod() {
-        return cod;
+    public Coord getCoord() {
+        return coord;
     }
 
-    public void setCod(Integer cod) {
-        this.cod = cod;
+    public void setCoord(Coord coord) {
+        this.coord = coord;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public Integer getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(Integer population) {
+        this.population = population;
     }
 
 }
